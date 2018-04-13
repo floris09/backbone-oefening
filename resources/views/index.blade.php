@@ -67,6 +67,25 @@
         pannenkoek.trigger("test", "jojo ik ben je brobro");
 
       }
+      function bijnaTijd(){
+        var Geert = Backbone.Model.extend({
+          validate: function(attrs, options) {
+            if (attrs.tijd < 16.30) {
+              return "can't go home yet";
+            }
+          }
+        });
+        var geert = new Geert({
+          tijd : 15.21
+        });
+
+        geert.on("invalid", function(model, error) {
+          alert(model.get("tijd") + " " + error);
+        });
+        if(!geert.isValid()){
+          alert('hoi');
+        }
+      }
     </script>
 
   </head>
@@ -75,6 +94,7 @@
     <button onclick='aanMaken()'>Aanmaken</button>
     <button onclick='showColor()'>Show Color</button>
     <button onclick='onOnderzoekTest()'>onOnderzoekTest</button>
+    <button onclick='bijnaTijd()'>bijnaTijd</button>
   </body>
 
 </html>
