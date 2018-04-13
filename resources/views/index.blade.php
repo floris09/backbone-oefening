@@ -86,6 +86,31 @@
           alert('hoi');
         }
       }
+
+
+      function url(){
+        Backbone.sync = function(method, model) {
+          // alert(method + ": " + JSON.stringify(model));
+        };
+
+        var Hangbuikzwijn = Backbone.Model.extend({urlRoot : '/hangbuikzwijn'});
+
+        var henkie = new Hangbuikzwijn({naam: 'Henk'});
+
+        henkie.save({
+          error: function(){
+            alert(response);
+          },
+          success: function(){
+            alert(response);
+          }
+        });
+
+
+      }
+
+
+
     </script>
 
   </head>
@@ -95,6 +120,7 @@
     <button onclick='showColor()'>Show Color</button>
     <button onclick='onOnderzoekTest()'>onOnderzoekTest</button>
     <button onclick='bijnaTijd()'>bijnaTijd</button>
+    <button onclick='url()'>url</button>
   </body>
 
 </html>

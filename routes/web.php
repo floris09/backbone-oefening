@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Hangbuikzwijn;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,15 @@ Route::get('/', function () {
 Route::get('/index', function () {
     return view('index');
 });
+
+Route::post('/hangbuikzwijn',function(Request $request){
+    return $request;
+
+    // $hangbuikzwijn = new Hangbuikzwijn();
+    // $hangbuikzwijn->naam = $request->naam;
+    // $hangbuikzwijn->save();
+});
+
 
 Route::get('/postman', function () {
     return ('index test');
