@@ -14,18 +14,33 @@
 
 
     <script>
-      function hide(){
-        dopost();
+
+      function aanMaken(){
+        var Sidebar = Backbone.Model.extend({
+          promptColor: function() {
+            var cssColor = prompt("Please enter a CSS color:");
+            this.set({color: cssColor});
+          }
+        });
+
+
+        var object = new Sidebar();
+        object.promptColor();
+        console.log(object);
+        showColor(object);
       }
+
+      function showColor(object){
+        console.log(object.attributes.color);
+      }
+
     </script>
 
   </head>
 
   <body>
-    <button onclick='hide()'></button>
-    <div id='ja'>
-      Hoi
-    </div>
+    <button onclick='aanMaken()'>Aanmaken</button>
+    <button onclick='showColor()'>Show Color</button>
   </body>
 
 </html>
